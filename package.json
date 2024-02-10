@@ -1,0 +1,16 @@
+{
+  "name": "hardhat-project",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.5",
+    "dotenv": "^16.4.1"
+  },
+  "scripts": {
+    "deploy": "npx hardhat run scripts/contractFactoryDeploy.js --network localhost",
+    "deploy-goerli": "npx hardhat run scripts/contractFactoryDeploy.js --network goerli",
+    "deploy-mumbai": "npx hardhat run scripts/contractFactoryDeploy.js --network mumbai",
+    "node": "npx hardhat node",
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test"
+  }
+}
