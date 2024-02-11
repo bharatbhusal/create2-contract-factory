@@ -2,7 +2,8 @@
 pragma solidity ^0.8.23;
 
 contract ContractFactory {
-    event Deploy(address addr);
+    event Deploy(address deployedContractAddress);
+    event PridictedAddress(address predictedDeployedContractAddress);
 
     function deploy(bytes memory bytecode, uint _salt) external {
         address addr;
@@ -16,10 +17,7 @@ contract ContractFactory {
         emit Deploy(addr);
     }
 
-    function getAddress(
-        bytes memory bytecode,
-        uint _salt
-    ) public view returns (address) {
+    function getAddress(bytes memory bytecode, uint _salt) public {
         bytes32 hash = keccak256(
             abi.encodePacked(
                 bytes1(0xff),
@@ -28,6 +26,6 @@ contract ContractFactory {
                 keccak256(bytecode)
             )
         );
-        return address(uint160(uint(hash)));
+        emit PridictedAddress(address(uint160(uint(hash))));
     }
 }

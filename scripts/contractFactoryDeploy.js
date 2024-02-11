@@ -17,7 +17,7 @@ const main = async () => {
 
 
 
-  //Delay
+  // //Delay
   await sleep(45 * 1000)
 
   await hre.run("verify:verify", {
