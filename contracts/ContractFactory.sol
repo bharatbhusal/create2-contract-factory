@@ -1,14 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.23;
 
-contract SimpleContract {
-    address owner;
-
-    constructor(address _owner) {
-        owner = _owner;
-    }
-}
-
 contract ContractFactory {
     event Deploy(address addr);
 
@@ -37,10 +29,5 @@ contract ContractFactory {
             )
         );
         return address(uint160(uint(hash)));
-    }
-
-    function getBytecode(address _owner) public pure returns (bytes memory) {
-        bytes memory bytecode = type(SimpleContract).creationCode;
-        return abi.encodePacked(bytecode, abi.encode(_owner));
     }
 }
